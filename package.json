@@ -8,6 +8,11 @@
     "start": "webpack --watch --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js"
   },
+  "homepage": "https://github.com/17x/react-table-srcoll",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/17x/react-table-srcoll.git"
+  },
   "peerDependencies": {
     "react": "^16.8.6"
   },
