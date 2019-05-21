@@ -1,6 +1,6 @@
 {
   "name": "rc-table-s",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "react table scroll, simply implement large lists scroll",
   "main": "build/index.js",
   "scripts": {
@@ -13,6 +13,13 @@
     "type": "git",
     "url": "git+https://github.com/17x/react-table-srcoll.git"
   },
+  "keywords": [
+    "react",
+    "table",
+    "react-table",
+    "react-table-scroll",
+    "react-table-scroll-optimize"
+  ],
   "peerDependencies": {
     "react": "^16.8.6"
   },
