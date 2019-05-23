@@ -1,6 +1,6 @@
 {
   "name": "rc-table-s",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "react table scroll, simply implement large lists scroll",
   "main": "build/index.js",
   "scripts": {
