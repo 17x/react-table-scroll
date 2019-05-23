@@ -1,5 +1,11 @@
 import React, {Component} from 'react'
-import {uniqBy, cloneDeep, orderBy, some} from 'lodash'
+// import {uniqBy, cloneDeep, orderBy, some,isNumber} from 'lodash'
+import uniqBy from 'lodash/uniqBy'
+import cloneDeep from 'lodash/cloneDeep'
+import orderBy from 'lodash/orderBy'
+import some from 'lodash/some'
+import isNumber from 'lodash/isNumber'
+
 import update from 'immutability-helper'
 import THead from './THead'
 import TBody from './TBody'
@@ -26,18 +32,6 @@ const handlePropsData = (data = []) => {
   return copyData
 }
 
-/*
-  *
-  Cols : [{text:"Character",valueKey:"name",width:100},{text:"Money",valueKey:"salary",width:200}]
-  Data  : [{id:1,name:"Tom":salary:1000},{id:2,name:"Jerry":salary:5000}]
-  ---------------------
-  | Character | Money |
-  ---------------------
-  |    Tom    | 1000  |
-  ---------------------
-  |   Jerry   | 5000  |
-  ---------------------
-  */
 class ReactTableScroll extends Component {
   constructor(props) {
     super(props)
@@ -175,8 +169,8 @@ class ReactTableScroll extends Component {
   }
 
   handleSorting = (col) => {
-    let currSortCol = _.cloneDeep(this.state.currentSorting)
-    let newData = _.cloneDeep(this.state.data)
+    let currSortCol = cloneDeep(this.state.currentSorting)
+    let newData = cloneDeep(this.state.data)
 
     // 升序降序的高亮状态控制
     if (col.valueKey === currSortCol.key) {
@@ -216,14 +210,14 @@ class ReactTableScroll extends Component {
 
   handleTHeadThMouseMove = (event) => {
     // console.log(this.resizingColIndex, this.startPointX)
-    if (!_.isNumber(this.resizingColIndex) || !this.startPointX || throttling) return
+    if (!isNumber(this.resizingColIndex) || !this.startPointX || throttling) return
 
     throttling = true
     setTimeout(() => {
       throttling = false
     }, 100)
 
-    let newCols = _.cloneDeep(this.state.cols)
+    let newCols = cloneDeep(this.state.cols)
     let deltaX = event.screenX - this.startPointX
     let currCol = newCols[this.resizingColIndex]
     this.startPointX = event.screenX
@@ -242,11 +236,11 @@ class ReactTableScroll extends Component {
 
   render() {
     const {
-      ref,
+      // ref,
       showCheckbox,
-      sortable,
-      onRowClick,
-      onRowDoubleClick,
+      // sortable,
+      // onRowClick,
+      // onRowDoubleClick,
       rowsClickHighlight,
       cellWithTitleAttr
     } = this.props
